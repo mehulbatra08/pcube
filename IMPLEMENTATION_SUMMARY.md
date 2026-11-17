@@ -36,7 +36,7 @@ This document summarizes all the changes implemented to the PCube Fitness websit
 **All 7 Branches Added:**
 
 #### Branch 1: PCube Fitness AGCR Enclave ✅
-- **Location:** Plot 278, AGCR Enclave, Karkardooma, Anand Vihar, New Delhi – 110092
+- **Location:** Plot 278, AGCR Enclave, Anand Vihar, New Delhi – 110092
 - **Status:** Now Open
 - **Instagram:** https://www.instagram.com/pcubefitness_agcr
 - **Gym Tour:** ✅ Available
