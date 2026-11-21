@@ -518,37 +518,93 @@ section {
   font-weight:800
 }
 
-/* Franchise Hero Grid */
+/* Franchise experience cards */
+.franchise-experience {
+  margin:clamp(48px,8vw,88px) 0
+}
+
+.franchise-experience-head {
+  max-width:640px;
+  margin:0 auto 40px;
+  text-align:center
+}
+
+.franchise-experience-head .eyebrow {
+  justify-content:center
+}
+
+.franchise-experience-title {
+  font-size:clamp(26px,3.5vw,38px);
+  letter-spacing:-.03em;
+  margin:12px 0 14px
+}
+
+.franchise-experience-head p {
+  margin:0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6
+}
+
 .franchise-hero-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:24px;
-  margin:50px 0
+  grid-template-columns:repeat(3,1fr);
+  gap:22px
 }
 
 .franchise-feature {
-  position:relative;
-  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  border-radius:16px;
   overflow:hidden;
-  background:var(--panel);
-  border:1px solid var(--line)
+  background:linear-gradient(165deg,#0a469f 0%,#061f55 100%);
+  border:1px solid var(--line);
+  box-shadow:0 12px 40px rgba(0,0,0,.22);
+  transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease
 }
 
-.franchise-feature img {
+.franchise-feature:hover {
+  border-color:rgba(255,198,41,.55);
+  transform:translateY(-6px);
+  box-shadow:0 18px 48px rgba(0,0,0,.35),0 0 0 1px rgba(255,198,41,.15)
+}
+
+.franchise-feature-media {
+  position:relative;
+  aspect-ratio:4 / 3;
+  overflow:hidden;
+  background:#041433
+}
+
+.franchise-feature-media img {
   width:100%;
-  height:280px;
+  height:100%;
   object-fit:cover;
-  display:block
+  display:block;
+  transition:transform .55s ease
+}
+
+.franchise-feature:hover .franchise-feature-media img {
+  transform:scale(1.06)
+}
+
+.franchise-feature-media::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(6,31,85,.35) 100%);
+  pointer-events:none
 }
 
 .franchise-feature-content {
-  padding:24px
+  padding:22px 22px 26px;
+  border-top:3px solid var(--lime)
 }
 
 .franchise-feature-content p {
   font-size:14px;
   color:var(--muted);
-  line-height:1.5;
+  line-height:1.55;
   margin:0
 }
 
@@ -575,21 +631,29 @@ section {
 }
 
 .franchise-benefit-icon {
-  width:100px;
-  height:100px;
-  margin:0 auto 20px;
-  background:rgba(255,198,41,.1);
+  width:76px;
+  height:76px;
+  margin:0 auto 22px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:20px
+  background:linear-gradient(145deg,rgba(255,198,41,.22),rgba(255,198,41,.08));
+  border:2px solid rgba(255,198,41,.55);
+  box-shadow:0 8px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.12);
+  transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease
 }
 
-.franchise-benefit-icon img {
-  width:100%;
-  height:100%;
-  object-fit:contain
+.franchise-benefit:hover .franchise-benefit-icon {
+  border-color:var(--lime);
+  box-shadow:0 10px 28px rgba(255,198,41,.25),inset 0 0 0 6px rgba(255,198,41,.08);
+  transform:scale(1.05)
+}
+
+.franchise-benefit-icon .ico-franchise {
+  width:34px;
+  height:34px;
+  color:var(--lime)
 }
 
 .franchise-benefit h2,
@@ -608,11 +672,36 @@ section {
   line-height:1.2
 }
 
-.franchise-page-hero .section-head h1 {
-  font-size:clamp(32px,4.5vw,52px);
-  line-height:1.05;
-  letter-spacing:-.04em;
-  margin:12px 0 16px
+.hero-art-franchise {
+  background:
+    linear-gradient(145deg,rgba(255,198,41,.18),transparent 42%),
+    linear-gradient(180deg,rgba(6,31,85,.12),rgba(6,31,85,.82)),
+    url("../images/franchise-feature-floor.jpeg") center/cover no-repeat
+}
+
+.franchise-hero .hero-art:after {
+  content:'PARTNER\A WITH PURPOSE'
+}
+
+.franchise-hero h1 {
+  max-width:720px
+}
+
+.franchise-page .darksection {
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(18,96,189,.38),transparent 52%),
+    radial-gradient(ellipse at 100% 100%,rgba(255,198,41,.07),transparent 42%),
+    linear-gradient(180deg,#061f55 0%,#052a6e 50%,#061f55 100%)
+}
+
+.franchise-body .franchise-experience {
+  margin-top:0
+}
+
+.franchise-body .franchise-benefits,
+.franchise-body .franchise-returns,
+.franchise-body .franchise-cta {
+  margin-top:clamp(56px,8vw,80px)
 }
 
 .franchise-journey {
@@ -716,6 +805,12 @@ section {
 }
 
 /* Responsive adjustments */
+@media(max-width:980px) {
+  .franchise-hero-grid {
+    grid-template-columns:1fr
+  }
+}
+
 @media(max-width:768px) {
   .franchise-hero-grid {
     grid-template-columns:1fr
@@ -1616,6 +1711,11 @@ section {
 .ico-arrow { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M7 17 17 7M8 7h9v9'/></svg>"); }
 .ico-nav   { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='3 11 22 2 13 21 11 13 3 11'/></svg>"); }
 .ico-clock { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M12 6v6l4 2'/></svg>"); }
+
+.ico-franchise-chart { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='M7 16v-6M11 16V8M15 16v-4M19 16V5'/></svg>"); }
+.ico-franchise-shield { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'/><path d='m9 12 2 2 4-4'/></svg>"); }
+.ico-franchise-support { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12a9 9 0 1 1-2.64-6.36'/><path d='M21 3v6h-6'/><path d='M3 12a9 9 0 1 1 2.64 6.36'/><path d='M3 21v-6h6'/></svg>"); }
+.ico-franchise-community { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M22 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>"); }
 
 /* ==========================================================
    About Us
