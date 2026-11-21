@@ -676,7 +676,7 @@ section {
   background:
     linear-gradient(145deg,rgba(255,198,41,.18),transparent 42%),
     linear-gradient(180deg,rgba(6,31,85,.12),rgba(6,31,85,.82)),
-    url("../images/franchise-feature-floor.jpeg") center/cover no-repeat
+    url("../images/franchise-feature-floor-new.jpeg") center/cover no-repeat
 }
 
 .franchise-hero .hero-art:after {
@@ -725,51 +725,114 @@ section {
   margin:0
 }
 
-/* Franchise Returns */
+/* Franchise returns */
 .franchise-returns {
-  background:linear-gradient(110deg,#0b469f,#061f55 70%);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:clamp(40px,6vw,70px);
   margin:60px 0;
   text-align:center
 }
 
-.franchise-returns h2 {
-  font-size:clamp(32px,4vw,48px);
-  color:var(--lime);
-  margin:0 0 50px 0;
-  letter-spacing:-.03em
+.franchise-returns-panel {
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid var(--line);
+  padding:clamp(36px,5vw,56px) clamp(20px,4vw,40px);
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(18,96,189,.45),transparent 55%),
+    linear-gradient(165deg,#0b469f 0%,#061f55 55%,#041433 100%);
+  box-shadow:0 20px 50px rgba(0,0,0,.28)
 }
 
-.franchise-stats {
+.franchise-returns-panel::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:var(--lime)
+}
+
+.franchise-returns-head {
+  max-width:560px;
+  margin:0 auto clamp(32px,5vw,44px)
+}
+
+.franchise-returns-head .eyebrow {
+  justify-content:center
+}
+
+.franchise-returns-head h2 {
+  font-size:clamp(30px,4vw,46px);
+  color:var(--white);
+  letter-spacing:-.03em;
+  margin:12px 0 10px
+}
+
+.franchise-returns-lead {
+  margin:0;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--muted)
+}
+
+.franchise-stat-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:30px;
-  max-width:1100px;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  max-width:1060px;
   margin:0 auto
 }
 
-.franchise-stat {
+.franchise-stat-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(49,89,154,.65);
+  border-radius:14px;
+  padding:22px 14px 20px;
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease
+}
+
+.franchise-stat-card:hover {
+  border-color:rgba(255,198,41,.55);
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,.22)
+}
+
+.franchise-stat-icon {
+  width:58px;
+  height:58px;
+  margin:0 auto 14px;
+  border-radius:50%;
   display:flex;
-  flex-direction:column;
   align-items:center;
-  gap:16px
+  justify-content:center;
+  background:linear-gradient(145deg,rgba(255,198,41,.2),rgba(255,198,41,.06));
+  border:2px solid rgba(255,198,41,.5)
 }
 
-.franchise-stat img {
-  width:80px;
-  height:80px;
-  object-fit:contain;
-  filter:drop-shadow(0 4px 10px rgba(255,198,41,.3))
+.franchise-stat-icon .ico-franchise {
+  width:28px;
+  height:28px;
+  color:var(--lime)
 }
 
-.franchise-stat strong {
-  font-size:18px;
-  color:var(--white);
-  text-align:center;
-  line-height:1.3;
-  font-weight:700
+.franchise-stat-value {
+  margin:0 0 8px;
+  font-size:clamp(16px,1.8vw,19px);
+  font-weight:800;
+  color:var(--lime);
+  line-height:1.25;
+  letter-spacing:-.02em
+}
+
+.franchise-stat-label {
+  margin:0;
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--muted);
+  line-height:1.35
 }
 
 /* Franchise CTA */
@@ -820,23 +883,20 @@ section {
     grid-template-columns:1fr
   }
   
-  .franchise-stats {
+  .franchise-stat-grid {
     grid-template-columns:repeat(2,1fr);
-    gap:24px
-  }
-  
-  .franchise-stat img {
-    width:60px;
-    height:60px
-  }
-  
-  .franchise-stat strong {
-    font-size:15px
+    gap:12px
   }
 }
 
-@media(max-width:480px) {
-  .franchise-stats {
+@media(max-width:1100px) {
+  .franchise-stat-grid {
+    grid-template-columns:repeat(3,1fr)
+  }
+}
+
+@media(max-width:640px) {
+  .franchise-stat-grid {
     grid-template-columns:1fr
   }
 }
@@ -1716,6 +1776,11 @@ section {
 .ico-franchise-shield { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10'/><path d='m9 12 2 2 4-4'/></svg>"); }
 .ico-franchise-support { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12a9 9 0 1 1-2.64-6.36'/><path d='M21 3v6h-6'/><path d='M3 12a9 9 0 1 1 2.64 6.36'/><path d='M3 21v-6h6'/></svg>"); }
 .ico-franchise-community { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M22 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>"); }
+.ico-franchise-area { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/></svg>"); }
+.ico-franchise-invest { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8'/><path d='M12 6v2M12 16v2'/></svg>"); }
+.ico-franchise-roi { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M12 6v6l4 2'/><path d='m16 6 2 2'/></svg>"); }
+.ico-franchise-margin { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m4 4 7 7-4 9 9-4 7 7'/><circle cx='19' cy='5' r='2'/></svg>"); }
+.ico-franchise-capex { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/><path d='M4 20h16'/></svg>"); }
 
 /* ==========================================================
    About Us
