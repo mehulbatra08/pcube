@@ -47,9 +47,13 @@ if (enquiryForm) {
     lines.push("Message: " + (formData.get("message") || "None"));
 
     const body = encodeURIComponent(lines.join("\n"));
+    const isFranchisePage = /franchise\.html$/i.test(window.location.pathname);
+    const recipient = isFranchisePage
+      ? "franchise@pcubefitness.com"
+      : "info@pcubefitness.com";
 
     window.location.href =
-      "mailto:info@pcubefitness.com?subject=" + subject + "&body=" + body;
+      "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
   });
 }
 
