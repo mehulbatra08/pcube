@@ -197,17 +197,7 @@ button,input,select,textarea {
   text-transform:uppercase;
   letter-spacing:.2em;
   color:var(--lime);
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  gap:10px
-}
-
-.eyebrow:before {
-  content:'';
-  width:25px;
-  height:2px;
-  background:var(--lime)
+  font-weight:900
 }
 
 h1 {
