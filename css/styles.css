@@ -574,6 +574,10 @@ section {
   transition:transform .55s ease
 }
 
+.franchise-feature-img-cover {
+  object-position:center center
+}
+
 .franchise-feature:hover .franchise-feature-media img {
   transform:scale(1.06)
 }
@@ -1567,11 +1571,20 @@ section {
     padding:20px;
     flex-direction:column;
     align-items:start;
-    border-bottom:1px solid var(--line)
+    border-bottom:1px solid var(--line);
+    z-index:10
   }
 
   .links.open {
     display:flex
+  }
+
+  .links a[href="franchise.html"] {
+    color:var(--lime);
+    font-weight:900;
+    padding:4px 0;
+    border-bottom:2px solid var(--lime);
+    margin-top:8px
   }
 
   .menu {
