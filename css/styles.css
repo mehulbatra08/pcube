@@ -1633,6 +1633,10 @@ section {
     grid-column:1/-1
   }
 
+  .footer {
+    padding-bottom:96px
+  }
+
   .mobilecta {
     display:block;
     position:fixed;
